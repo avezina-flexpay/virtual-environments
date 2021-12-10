@@ -260,10 +260,6 @@
             "restart_timeout": "10m"
         },
         {
-            "type": "windows-restart",
-            "restart_timeout": "10m"
-        },
-        {
             "type": "powershell",
             "inline": [
                 "if( Test-Path $Env:SystemRoot\\System32\\Sysprep\\unattend.xml ){ rm $Env:SystemRoot\\System32\\Sysprep\\unattend.xml -Force}",
