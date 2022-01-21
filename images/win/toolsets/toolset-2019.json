@@ -1,19 +1,6 @@
 {
     "toolcache": [
         {
-            "name": "Ruby",
-            "arch": "x64",
-            "platform" : "win32",
-            "versions": [
-                "2.4",
-                "2.5",
-                "2.6",
-                "2.7",
-                "3.0"
-            ],
-            "default": "2.5"
-        },
-        {
             "name": "Python",
             "url" : "https://raw.githubusercontent.com/actions/python-versions/main/versions-manifest.json",
             "arch": "x64",
@@ -45,17 +32,6 @@
             ]
         },
         {
-            "name": "PyPy",
-            "arch": "x86",
-            "platform" : "win64",
-            "versions": [
-                "2.7",
-                "3.6",
-                "3.7",
-                "3.8"
-            ]
-        },
-        {
             "name": "node",
             "url" : "https://raw.githubusercontent.com/actions/node-versions/main/versions-manifest.json",
             "arch": "x64",
@@ -65,18 +41,6 @@
                 "14.*",
                 "16.*"
             ]
-        },
-        {
-            "name": "go",
-            "url" : "https://raw.githubusercontent.com/actions/go-versions/main/versions-manifest.json",
-            "arch": "x64",
-            "platform" : "win32",
-            "versions": [
-                "1.15.*",
-                "1.16.*",
-                "1.17.*"
-            ],
-            "default": "1.15.*"
         }
     ],
     "powershellModules": [
@@ -143,50 +107,6 @@
             ]
         }
     ],
-    "java": {
-        "default": "8",
-        "default_vendor": "Temurin-Hotspot",
-        "vendors": [
-            {
-                "name": "Temurin-Hotspot",
-                "versions": [ "8", "11", "17" ]
-            },
-            {
-                "name": "Adopt",
-                "versions": [ "8", "11", "13" ]
-            }
-        ]
-    },
-    "android": {
-        "platform_min_version": "19",
-        "build_tools_min_version": "19.1.0",
-        "extra_list": [
-            "android;m2repository",
-            "google;m2repository",
-            "google;google_play_services",
-            "m2repository;com;android;support;constraint;constraint-layout-solver;1.0.2",
-            "m2repository;com;android;support;constraint;constraint-layout-solver;1.0.1",
-            "m2repository;com;android;support;constraint;constraint-layout;1.0.2",
-            "m2repository;com;android;support;constraint;constraint-layout;1.0.1"
-        ],
-        "addon_list": [
-            "addon-google_apis-google-24",
-            "addon-google_apis-google-23",
-            "addon-google_apis-google-22",
-            "addon-google_apis-google-21"
-        ],
-        "additional_tools": [
-            "cmake;3.10.2.4988404",
-            "cmake;3.18.1",
-            "patcher;v4"
-        ],
-        "ndk": {
-            "default": "21",
-            "versions": [
-                "21", "22", "23"
-            ]
-        }
-    },
     "MsysPackages": {
         "msys2": [
             "base-devel",
@@ -397,10 +317,6 @@
             "cmd": "yamllint --version"
         }
     ],
-    "selenium": {
-        "version": "4",
-        "binary_name": "selenium-server"
-    },
     "npm": {
         "global_packages": [
             { "name": "yarn", "test": "yarn --version" },
@@ -460,26 +376,10 @@
     "node": {
         "default": "16"
     },
-    "mysql": {
-        "version": "5.7"
-    },
-    "mongodb": {
-        "version": "5.0"
-    },
     "nsis": {
         "version": "3.08"
     },
-    "php": {
-        "version": "8.1"
-    },
     "llvm": {
         "version": "13"
-    },
-    "postgresql": {
-        "version": "14"
-    },
-    "kotlin": {
-        "version": "latest",
-        "binary_name": "kotlin-compiler"
     }
 }
