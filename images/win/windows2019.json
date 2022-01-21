@@ -177,8 +177,7 @@
                 "{{ template_dir }}/scripts/Installers/Install-AzureCli.ps1",
                 "{{ template_dir }}/scripts/Installers/Install-AzureDevOpsCli.ps1",
                 "{{ template_dir }}/scripts/Installers/Install-NodeLts.ps1",
-                "{{ template_dir }}/scripts/Installers/Install-CommonUtils.ps1",
-                "{{ template_dir }}/scripts/Installers/Install-JavaTools.ps1"
+                "{{ template_dir }}/scripts/Installers/Install-CommonUtils.ps1"
             ]
         },
         {
