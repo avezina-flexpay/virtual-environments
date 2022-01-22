@@ -4,15 +4,11 @@ $ErrorView = "NormalView"
 Set-StrictMode -Version Latest
 
 Import-Module MarkdownPS
-Import-Module (Join-Path $PSScriptRoot "SoftwareReport.Android.psm1") -DisableNameChecking
 Import-Module (Join-Path $PSScriptRoot "SoftwareReport.Browsers.psm1") -DisableNameChecking
 Import-Module (Join-Path $PSScriptRoot "SoftwareReport.CachedTools.psm1") -DisableNameChecking
 Import-Module (Join-Path $PSScriptRoot "SoftwareReport.Common.psm1") -DisableNameChecking
-Import-Module (Join-Path $PSScriptRoot "SoftwareReport.Databases.psm1") -DisableNameChecking
 Import-Module (Join-Path $PSScriptRoot "SoftwareReport.Helpers.psm1") -DisableNameChecking
 Import-Module (Join-Path $PSScriptRoot "SoftwareReport.Tools.psm1") -DisableNameChecking
-Import-Module (Join-Path $PSScriptRoot "SoftwareReport.Java.psm1") -DisableNameChecking
-Import-Module (Join-Path $PSScriptRoot "SoftwareReport.WebServers.psm1") -DisableNameChecking
 Import-Module (Join-Path $PSScriptRoot "SoftwareReport.VisualStudio.psm1") -DisableNameChecking
 
 $markdown = ""
@@ -37,29 +33,23 @@ if ((Test-IsWin19) -or (Test-IsWin22))
 $markdown += New-MDHeader "Installed Software" -Level 2
 $markdown += New-MDHeader "Language and Runtime" -Level 3
 $languageTools = @(
-    (Get-BashVersion),
-    (Get-GoVersion),
+    (Get-BashVersion)
     (Get-JuliaVersion),
     (Get-LLVMVersion),
     (Get-NodeVersion),
     (Get-PerlVersion)
-    (Get-PHPVersion),
-    (Get-PythonVersion),
-    (Get-RubyVersion),
-    (Get-KotlinVersion)
+    (Get-PythonVersion)
 )
 $markdown += New-MDList -Style Unordered -Lines ($languageTools | Sort-Object)
 
 $packageManagementList = @(
     (Get-ChocoVersion),
-    (Get-CondaVersion),
     (Get-ComposerVersion),
     (Get-HelmVersion),
     (Get-NPMVersion),
     (Get-NugetVersion),
     (Get-PipxVersion),
     (Get-PipVersion),
-    (Get-RubyGemsVersion),
     (Get-VcpkgVersion),
     (Get-YarnVersion)
 )
@@ -86,12 +76,9 @@ $toolsList = @(
     (Get-7zipVersion),
     (Get-Aria2Version),
     (Get-AzCopyVersion),
-    (Get-BazelVersion),
-    (Get-BazeliskVersion),
     (Get-BicepVersion),
     (Get-CabalVersion),
     (Get-CMakeVersion),
-    (Get-CodeQLBundleVersion),
     (Get-DockerVersion),
     (Get-DockerComposeVersion),
     (Get-DockerWincredVersion),
@@ -102,7 +89,6 @@ $toolsList = @(
     (Get-JQVersion),
     (Get-KindVersion),
     (Get-KubectlVersion),
-    (Get-MercurialVersion),
     (Get-MinGWVersion),
     (Get-NewmanVersion),
     (Get-NSISVersion),
@@ -117,7 +103,6 @@ $toolsList = @(
     (Get-SwigVersion),
     (Get-WinAppDriver),
     (Get-WixVersion),
-    (Get-ZstdVersion),
     (Get-YAMLLintVersion)
 )
 if ((Test-IsWin16) -or (Test-IsWin19)) {
@@ -130,7 +115,6 @@ $markdown += New-MDList -Style Unordered -Lines ($toolsList | Sort-Object)
 
 $markdown += New-MDHeader "CLI Tools" -Level 3
 $cliTools = @(
-    (Get-AlibabaCLIVersion),
     (Get-AWSCLIVersion),
     (Get-AWSSAMVersion),
     (Get-AWSSessionManagerVersion),
@@ -146,26 +130,6 @@ if ((Test-IsWin16) -or (Test-IsWin19)) {
 }
 $markdown += New-MDList -Style Unordered -Lines ($cliTools | Sort-Object)
 
-$markdown += New-MDHeader "Rust Tools" -Level 3
-$markdown += New-MDList -Style Unordered -Lines (@(
-    "Rust $(Get-RustVersion)",
-    "Rustup $(Get-RustupVersion)",
-    "Cargo $(Get-RustCargoVersion)",
-    "Rustdoc $(Get-RustdocVersion)"
-    ) | Sort-Object
-)
-
-$markdown += New-MDHeader "Packages" -Level 4
-$markdown += New-MDList -Style Unordered -Lines (@(
-    (Get-BindgenVersion),
-    (Get-CargoAuditVersion),
-    (Get-CargoOutdatedVersion),
-    (Get-CbindgenVersion),
-    "Rustfmt $(Get-RustfmtVersion)",
-    "Clippy $(Get-RustClippyVersion)"
-    ) | Sort-Object
-)
-
 $markdown += New-MDHeader "Browsers and webdrivers" -Level 3
 $markdown += New-MDList -Style Unordered -Lines @(
     (Get-BrowserVersion -Browser "chrome"),
@@ -180,10 +144,6 @@ $markdown += New-MDList -Style Unordered -Lines @(
 
 $markdown += New-MDHeader "Environment variables" -Level 4
 $markdown += Build-BrowserWebdriversEnvironmentTable | New-MDTable
-$markdown += New-MDNewLine
-
-$markdown += New-MDHeader "Java" -Level 3
-$markdown += Get-JavaVersions | New-MDTable
 $markdown += New-MDNewLine
 
 $markdown += New-MDHeader "Shells" -Level 3
@@ -217,13 +177,10 @@ $markdown += Build-DatabasesMarkdown
 $markdown += New-MDHeader "Database tools" -Level 3
 $markdown += New-MDList -Style Unordered -Lines (@(
     (Get-AzCosmosDBEmulatorVersion),
-    (Get-DacFxVersion),
-    (Get-MySQLVersion),
+    (Get-DacFxVersion)
     (Get-SQLPSVersion)
     ) | Sort-Object
 )
-
-$markdown += Build-WebServersSection
 
 $vs = Get-VisualStudioVersion
 $markdown += New-MDHeader "$($vs.Name)" -Level 3
@@ -282,14 +239,6 @@ $markdown += New-MDParagraph -Lines $reportAzPwsh
 
 $markdown += New-MDHeader "Powershell Modules" -Level 4
 $markdown += Get-PowerShellModules | New-MDTable
-$markdown += New-MDNewLine
-
-# Android section
-$markdown += New-MDHeader "Android" -Level 3
-$markdown += Build-AndroidTable | New-MDTable
-$markdown += New-MDNewLine
-$markdown += New-MDHeader "Environment variables" -Level 4
-$markdown += Build-AndroidEnvironmentTable | New-MDTable
 $markdown += New-MDNewLine
 
 # Docker images section
