@@ -89,13 +89,6 @@ Describe "PowerShell Core" {
         pwsh -Command "2+2" | Should -BeExactly 4
     }
 }
-
-Describe "Sbt" {
-    It "sbt" {
-        "sbt --version" | Should -ReturnZeroExitCode
-    }
-}
-
 Describe "ServiceFabricSDK" {
     It "PowerShell Module" {
         Get-Module -Name ServiceFabric -ListAvailable | Should -Not -BeNullOrEmpty
