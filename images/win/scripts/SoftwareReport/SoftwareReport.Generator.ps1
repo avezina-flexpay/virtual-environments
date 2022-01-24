@@ -65,7 +65,6 @@ $markdown += New-MDHeader "Project Management" -Level 3
 $projectManagementTools = @(
     (Get-AntVersion),
     (Get-GradleVersion),
-    (Get-MavenVersion),
     (Get-SbtVersion)
 )
 
@@ -107,7 +106,6 @@ $toolsList = @(
 )
 if ((Test-IsWin16) -or (Test-IsWin19)) {
     $toolsList += @(
-        (Get-GoogleCloudSDKVersion),
         (Get-ParcelVersion)
     )
 }
@@ -136,10 +134,7 @@ $markdown += New-MDList -Style Unordered -Lines @(
     (Get-SeleniumWebDriverVersion -Driver "chrome"),
     (Get-BrowserVersion -Browser "edge"),
     (Get-SeleniumWebDriverVersion -Driver "edge"),
-    (Get-BrowserVersion -Browser "firefox"),
-    (Get-SeleniumWebDriverVersion -Driver "firefox"),
-    (Get-SeleniumWebDriverVersion -Driver "iexplorer"),
-    (Get-SeleniumVersion)
+    (Get-SeleniumWebDriverVersion -Driver "iexplorer")
 )
 
 $markdown += New-MDHeader "Environment variables" -Level 4
@@ -170,9 +165,6 @@ if (Test-IsWin19)
 
 $markdown += New-MDHeader "Cached Tools" -Level 3
 $markdown += (Build-CachedToolsMarkdown)
-
-$markdown += New-MDHeader "Databases" -Level 3
-$markdown += Build-DatabasesMarkdown
 
 $markdown += New-MDHeader "Database tools" -Level 3
 $markdown += New-MDList -Style Unordered -Lines (@(

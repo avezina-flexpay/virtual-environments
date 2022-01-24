@@ -7,10 +7,6 @@ $browsers = @{
         Name="Microsoft Edge";
         File="msedge.exe"
     };
-    firefox = @{
-        Name="Mozilla Firefox";
-        File="firefox.exe"
-    }
 }
 
 $webDrivers = @{
@@ -21,10 +17,6 @@ $webDrivers = @{
     edge = @{
         Name="Microsoft Edge Driver";
         Path="C:\SeleniumWebDrivers\EdgeDriver"
-    };
-    firefox = @{
-        Name="Gecko Driver";
-        Path="C:\SeleniumWebDrivers\GeckoDriver"
     };
     iexplorer = @{
         Name="IE Driver";

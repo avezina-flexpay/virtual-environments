@@ -14,24 +14,6 @@ Describe "Azure Cosmos DB Emulator" {
     }
 }
 
-Describe "Bazel" {
-    It "<ToolName>" -TestCases @(
-        @{ ToolName = "bazel" }
-        @{ ToolName = "bazelisk" }
-    ) {
-        "$ToolName --version"| Should -ReturnZeroExitCode
-    }
-}
-
-Describe "CodeQLBundle" {
-    It "CodeQLBundle" {
-        $CodeQLVersionsWildcard = Join-Path $Env:AGENT_TOOLSDIRECTORY -ChildPath "codeql" | Join-Path -ChildPath "*"
-        $CodeQLVersionPath = Get-ChildItem $CodeQLVersionsWildcard | Select-Object -First 1 -Expand FullName
-        $CodeQLPath = Join-Path $CodeQLVersionPath -ChildPath "x64" | Join-Path -ChildPath "codeql" | Join-Path -ChildPath "codeql.exe"
-        "$CodeQLPath version" | Should -ReturnZeroExitCode
-    }
-}
-
 Describe "R" {
     It "Rscript" {
         "Rscript --version" | Should -ReturnZeroExitCode
@@ -54,12 +36,6 @@ Describe "DACFx" {
 Describe "DotnetTLS" -Skip:(Test-IsWin22) {
     It "Tls 1.2 is enabled" {
         [Net.ServicePointManager]::SecurityProtocol -band "Tls12" | Should -Be Tls12
-    }
-}
-
-Describe "Mercurial" {
-    It "Mercurial" {
-        "hg --version" | Should -ReturnZeroExitCode
     }
 }
 
@@ -88,16 +64,6 @@ Describe "Mingw64" {
         @{ ToolName = "make" }
     ) {
         "$ToolName --version" | Should -ReturnZeroExitCode
-    }
-}
-
-Describe "GoogleCloudSDK" -Skip:(Test-IsWin22) {
-    It "<ToolName>" -TestCases @(
-        @{ ToolName = "bq" }
-        @{ ToolName = "gcloud" }
-        @{ ToolName = "gsutil" }
-    ) {
-        "$ToolName version" | Should -ReturnZeroExitCode
     }
 }
 
@@ -179,25 +145,5 @@ Describe "VCRedist" -Skip:(Test-IsWin22) {
 Describe "WebPlatformInstaller" {
     It "WebPlatformInstaller" {
         "WebPICMD" | Should -ReturnZeroExitCode
-    }
-}
-
-Describe "Zstd" {
-    It "zstd" {
-        "zstd -V" | Should -ReturnZeroExitCode
-    }
-}
-
-Describe "Pipx" {
-    It "Pipx" {
-        "pipx --version" | Should -ReturnZeroExitCode
-    }
-}
-
-Describe "Kotlin" {
-    $kotlinPackages =  @("kapt", "kotlin", "kotlinc", "kotlin-dce-js", "kotlinc-js", "kotlinc-jvm")
-
-    It "<toolName> is available" -TestCases ($kotlinPackages | ForEach-Object { @{ toolName = $_ } })  {
-        "$toolName -version" | Should -ReturnZeroExitCode
     }
 }

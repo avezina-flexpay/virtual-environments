@@ -311,12 +311,6 @@
             "mcr.microsoft.com/dotnet/framework/sdk:4.8-windowsservercore-ltsc2019"
         ]
     },
-    "pipx": [
-        {
-            "package": "yamllint",
-            "cmd": "yamllint --version"
-        }
-    ],
     "npm": {
         "global_packages": [
             { "name": "yarn", "test": "yarn --version" },

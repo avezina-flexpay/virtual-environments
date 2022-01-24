@@ -11,12 +11,6 @@ Describe "Azure DevOps CLI" {
     }
 }
 
-Describe "Aliyun CLI" {
-    It "Aliyun CLI" {
-        "aliyun version" | Should -ReturnZeroExitCode
-    }
-}
-
 
 Describe "AWS" {
     It "AWS CLI" {
