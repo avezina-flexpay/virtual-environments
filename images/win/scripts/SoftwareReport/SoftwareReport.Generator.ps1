@@ -47,7 +47,6 @@ $packageManagementList = @(
     (Get-HelmVersion),
     (Get-NPMVersion),
     (Get-NugetVersion),
-    (Get-PipxVersion),
     (Get-PipVersion),
     (Get-VcpkgVersion),
     (Get-YarnVersion)
