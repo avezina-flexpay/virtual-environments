@@ -44,7 +44,6 @@ $markdown += New-MDList -Style Unordered -Lines ($languageTools | Sort-Object)
 
 $packageManagementList = @(
     (Get-ChocoVersion),
-    (Get-ComposerVersion),
     (Get-HelmVersion),
     (Get-NPMVersion),
     (Get-NugetVersion),
@@ -64,8 +63,7 @@ $markdown += New-MDNewLine
 $markdown += New-MDHeader "Project Management" -Level 3
 $projectManagementTools = @(
     (Get-AntVersion),
-    (Get-GradleVersion),
-    (Get-SbtVersion)
+    (Get-GradleVersion)
 )
 
 $markdown += New-MDList -Style Unordered -Lines ($projectManagementTools | Sort-Object)
@@ -93,8 +91,7 @@ $toolsList = @(
     (Get-NSISVersion),
     (Get-OpenSSLVersion),
     (Get-PackerVersion),
-    (Get-PulumiVersion),
-    (Get-RVersion),
+    (Get-PulumiVersion)
     (Get-ServiceFabricSDKVersion),
     (Get-StackVersion),
     (Get-SVNVersion),

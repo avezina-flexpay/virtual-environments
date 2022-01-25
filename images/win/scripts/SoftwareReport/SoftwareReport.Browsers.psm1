@@ -65,10 +65,6 @@ function Build-BrowserWebdriversEnvironmentTable {
         @{
             "Name" = "GECKOWEBDRIVER"
             "Value" = $env:GECKOWEBDRIVER
-        },
-        @{
-            "Name" = "SELENIUM_JAR_PATH"
-            "Value" = $env:SELENIUM_JAR_PATH
         }
     ) | ForEach-Object {
         [PSCustomObject] @{
