@@ -61,7 +61,6 @@ $markdown += New-MDNewLine
 
 $markdown += New-MDHeader "Project Management" -Level 3
 $projectManagementTools = @(
-    (Get-AntVersion),
     (Get-GradleVersion)
 )
 
@@ -81,8 +80,7 @@ $toolsList = @(
     (Get-GHCVersion),
     (Get-GitVersion),
     (Get-GitLFSVersion),
-    (Get-InnoSetupVersion),
-    (Get-JQVersion),
+    (Get-InnoSetupVersion)
     (Get-KindVersion),
     (Get-KubectlVersion),
     (Get-MinGWVersion),
