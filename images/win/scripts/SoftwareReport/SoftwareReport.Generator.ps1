@@ -59,11 +59,6 @@ $markdown += New-MDHeader "Environment variables" -Level 4
 $markdown += Build-PackageManagementEnvironmentTable | New-MDTable
 $markdown += New-MDNewLine
 
-$markdown += New-MDHeader "Project Management" -Level 3
-$projectManagementTools = @(
-    (Get-GradleVersion)
-)
-
 $markdown += New-MDList -Style Unordered -Lines ($projectManagementTools | Sort-Object)
 
 $markdown += New-MDHeader "Tools" -Level 3
@@ -71,30 +66,17 @@ $toolsList = @(
     (Get-7zipVersion),
     (Get-Aria2Version),
     (Get-AzCopyVersion),
-    (Get-BicepVersion),
-    (Get-CabalVersion),
-    (Get-CMakeVersion),
     (Get-DockerVersion),
     (Get-DockerComposeVersion),
     (Get-DockerWincredVersion),
     (Get-GHCVersion),
     (Get-GitVersion),
     (Get-GitLFSVersion),
-    (Get-InnoSetupVersion)
-    (Get-KindVersion),
     (Get-KubectlVersion),
     (Get-MinGWVersion),
-    (Get-NewmanVersion),
-    (Get-NSISVersion),
     (Get-OpenSSLVersion),
     (Get-PackerVersion),
-    (Get-PulumiVersion)
-    (Get-ServiceFabricSDKVersion),
-    (Get-StackVersion),
-    (Get-SVNVersion),
     (Get-VSWhereVersion),
-    (Get-SwigVersion),
-    (Get-WinAppDriver),
     (Get-WixVersion),
     (Get-YAMLLintVersion)
 )
@@ -124,15 +106,10 @@ $markdown += New-MDList -Style Unordered -Lines ($cliTools | Sort-Object)
 
 $markdown += New-MDHeader "Browsers and webdrivers" -Level 3
 $markdown += New-MDList -Style Unordered -Lines @(
-    (Get-BrowserVersion -Browser "chrome"),
-    (Get-SeleniumWebDriverVersion -Driver "chrome"),
-    (Get-BrowserVersion -Browser "edge"),
-    (Get-SeleniumWebDriverVersion -Driver "edge"),
-    (Get-SeleniumWebDriverVersion -Driver "iexplorer")
+    (Get-BrowserVersion -Browser "chrome")
+    (Get-BrowserVersion -Browser "edge")
 )
 
-$markdown += New-MDHeader "Environment variables" -Level 4
-$markdown += Build-BrowserWebdriversEnvironmentTable | New-MDTable
 $markdown += New-MDNewLine
 
 $markdown += New-MDHeader "Shells" -Level 3
