@@ -59,8 +59,6 @@ $markdown += New-MDHeader "Environment variables" -Level 4
 $markdown += Build-PackageManagementEnvironmentTable | New-MDTable
 $markdown += New-MDNewLine
 
-$markdown += New-MDList -Style Unordered -Lines ($projectManagementTools | Sort-Object)
-
 $markdown += New-MDHeader "Tools" -Level 3
 $toolsList = @(
     (Get-7zipVersion),
