@@ -66,8 +66,7 @@ $toolsList = @(
     (Get-AzCopyVersion),
     (Get-DockerVersion),
     (Get-DockerComposeVersion),
-    (Get-DockerWincredVersion),
-    (Get-GHCVersion),
+    (Get-DockerWincredVersion)
     (Get-GitVersion),
     (Get-GitLFSVersion),
     (Get-KubectlVersion),
