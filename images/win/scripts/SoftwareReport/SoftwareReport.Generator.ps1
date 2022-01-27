@@ -135,11 +135,10 @@ $markdown += New-MDHeader "Cached Tools" -Level 3
 $markdown += (Build-CachedToolsMarkdown)
 
 $markdown += New-MDHeader "Database tools" -Level 3
-$markdown += New-MDList -Style Unordered -Lines (@(
+$databaseTools = @(
     (Get-AzCosmosDBEmulatorVersion),
     (Get-DacFxVersion)
     (Get-SQLPSVersion)
-    ) | Sort-Object
 )
 
 $vs = Get-VisualStudioVersion
