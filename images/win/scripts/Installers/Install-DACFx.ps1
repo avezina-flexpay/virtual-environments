@@ -8,4 +8,4 @@ $InstallerUrl = "https://aka.ms/dacfx-msi"
 
 Install-Binary -Url $InstallerUrl -Name $InstallerName
 
-Invoke-PesterTests -TestFile "Tools" -TestName "DACFx"
+# Invoke-PesterTests -TestFile "Tools" -TestName "DACFx"
